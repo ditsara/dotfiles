@@ -25,9 +25,6 @@ filetype off                  " required
 map ; :
 noremap ;; ;
 
-" remap Ctrl-Enter to Escape in Insert Mode
-inoremap jk <Esc>
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -64,6 +61,7 @@ Plugin 'tpope/vim-commentary.git'
 Plugin 'Raimondi/delimitMate'
 Plugin 'skwp/greplace.vim'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'kana/vim-arpeggio'
 
 " JS and JSX
 Plugin 'pangloss/vim-javascript'
@@ -97,3 +95,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" Map simultaneous 'jk' to ESC in Insert mode
+call arpeggio#map('i', '', 0, 'jk', '<Esc>')
