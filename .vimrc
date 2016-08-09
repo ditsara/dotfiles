@@ -26,7 +26,7 @@ map ; :
 noremap ;; ;
 
 " remap Ctrl-Enter to Escape in Insert Mode
-inoremap <C-Space> <Esc>
+inoremap jk <Esc>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
