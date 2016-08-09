@@ -9,14 +9,24 @@ set colorcolumn=80
 colorscheme desert      " colorscheme desert
 set nobackup            " get rid of annoying ~file
 
+set ttyfast             " Send more characters for redraws
+set mouse=a             " Enable mouse use in all modes
+
 set tabstop=2           " 2-space tabs
-set shiftwidth=2
-set expandtab
+set shiftwidth=2        " size of an indent
+set expandtab           " always uses spaces instead of tab characters
 
 noremap <F4> :set hlsearch! hlsearch?<CR>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+" enter command mode with semicolon
+map ; :
+noremap ;; ;
+
+" remap Ctrl-Enter to Escape in Insert Mode
+inoremap <C-Space> <Esc>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -51,6 +61,13 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary.git'
+Plugin 'Raimondi/delimitMate'
+Plugin 'skwp/greplace.vim'
+Plugin 'bronson/vim-trailing-whitespace'
+
+" JS and JSX
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 Plugin 'scrooloose/nerdtree.git'
 map <C-T> :NERDTreeToggle<CR>
@@ -59,6 +76,12 @@ Plugin 'ap/vim-buftabline'
 set hidden
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-M> :bprev<CR>
+
+" Snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
