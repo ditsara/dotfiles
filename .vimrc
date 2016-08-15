@@ -52,6 +52,18 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 Plugin 'ctrlpvim/ctrlp.vim'
+" Treat spaces as underscores when searching
+let g:ctrlp_abbrev = {
+    \ 'gmode': 't',
+    \ 'abbrevs': [
+        \ {
+        \ 'pattern': '\(^@.\+\|\\\@<!:.\+\)\@<! ',
+        \ 'expanded': '_',
+        \ 'mode': 'pfrz',
+        \ },
+        \ ]
+    \ }
+
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
@@ -62,6 +74,9 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'skwp/greplace.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kana/vim-arpeggio'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/vim-auto-save'
 
 " JS and JSX
 Plugin 'pangloss/vim-javascript'
@@ -98,3 +113,5 @@ filetype plugin indent on    " required
 
 " Map simultaneous 'jk' to ESC in Insert mode
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+" set t_Co=256
+" colorscheme solarized
