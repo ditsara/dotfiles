@@ -72,11 +72,19 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'Raimondi/delimitMate'
 Plugin 'skwp/greplace.vim'
+
 Plugin 'bronson/vim-trailing-whitespace'
+noremap <Leader>w :FixWhitespace
+
 Plugin 'kana/vim-arpeggio'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/vim-auto-save'
+map <Leader>a :AutoSaveToggle
+
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_enabled = 0
+map <Leader>i :IndentLinesToggle
 
 " JS and JSX
 Plugin 'pangloss/vim-javascript'
