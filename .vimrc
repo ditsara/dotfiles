@@ -5,8 +5,14 @@ filetype plugin on
 filetype indent on      " activates indenting for files
 set autoindent          " auto indenting
 set number              " line numbers
-set colorcolumn=80
-colorscheme desert      " colorscheme desert
+set colorcolumn=80      " highlight 80th character
+
+colorscheme obsidian
+set t_Co=256
+set background=dark
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
+
 set nobackup            " get rid of annoying ~file
 
 set ttyfast             " Send more characters for redraws
@@ -16,7 +22,15 @@ set tabstop=2           " 2-space tabs
 set shiftwidth=2        " size of an indent
 set expandtab           " always uses spaces instead of tab characters
 
-noremap <F4> :set hlsearch! hlsearch?<CR>
+let mapleader = "\<Space>" " use Space as leader key
+
+noremap <Leader>s :set hlsearch! hlsearch?<CR>
+
+" <Leader>+c copies to system (X) clipboard in visual mode
+vmap <Leader>c :w !xsel -ib<CR><CR>
+map <Leader>v :read !xsel -o<CR>
+" close current file
+map <Leader>q :bd<CR>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -74,17 +88,17 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'skwp/greplace.vim'
 
 Plugin 'bronson/vim-trailing-whitespace'
-noremap <Leader>w :FixWhitespace
+noremap <Leader>w :FixWhitespace<CR>
 
 Plugin 'kana/vim-arpeggio'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/vim-auto-save'
-map <Leader>a :AutoSaveToggle
+map <Leader>a :AutoSaveToggle<CR>
 
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_enabled = 0
-map <Leader>i :IndentLinesToggle
+map <Leader>i :IndentLinesToggle<CR>
 
 " JS and JSX
 Plugin 'pangloss/vim-javascript'
@@ -92,6 +106,7 @@ Plugin 'mxw/vim-jsx'
 
 Plugin 'scrooloose/nerdtree.git'
 map <C-T> :NERDTreeToggle<CR>
+map <Leader>f :NERDTreeFind<CR>
 
 Plugin 'ap/vim-buftabline'
 set hidden
@@ -119,7 +134,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Map simultaneous 'jk' to ESC in Insert mode
-call arpeggio#map('i', '', 0, 'jk', '<Esc>')
-" set t_Co=256
-" colorscheme solarized
+" For some reason these only work at the end of .vimrc
+
+" Map simultaneous 'jk' to ESC in Insert and Visual mode
+call arpeggio#map('iv', '', 0, 'jk', '<Esc>')
+
