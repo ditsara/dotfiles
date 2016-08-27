@@ -44,11 +44,12 @@ let mapleader = "\<Space>" " use Space as leader key
 
 noremap <Leader>s :set hlsearch! hlsearch?<CR>
 
-" <Leader>+c copies to system (X) clipboard in visual mode
+" <Leader>+c copies to system clipboard in visual mode
+" OS detection here maps it either to xsel (Linux) or pbcopy (Mac)
 let g:os = substitute(system('uname'), '\n', '', '')
 if g:os == "Linux"
   vmap <Leader>c :w !xsel -ib<CR><CR>
-  map <Leader>v :read !xsel -o<CR>
+  map <Leader>v :read !xsel -ob<CR>
 elseif g:os == "Darwin"
   vmap <Leader>c :w !pbcopy<CR><CR>
   map <Leader>v :read !pbpaste<CR>
