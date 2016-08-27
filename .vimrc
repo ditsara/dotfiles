@@ -7,11 +7,30 @@ set autoindent          " auto indenting
 set number              " line numbers
 set colorcolumn=80      " highlight 80th character
 
-colorscheme obsidian
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+" These colorschemes seem to work well without any other adjustments
+" colorscheme anderson
+colorscheme blacklight
+" colorscheme blink
+" colorscheme candypaper
+" colorscheme cobalt2
+" colorscheme flatui
+" colorscheme gotham256
+
+" These colorschemes might work with some adjustments to background
+" colorscheme bluez
+" colorscheme borland
+" colorscheme brogrammer
+" colorscheme marlccio
+
 set t_Co=256
-set background=dark
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+" set background=dark
+" highlight Normal ctermbg=NONE
+" highlight nonText ctermbg=NONE
 
 set nobackup            " get rid of annoying ~file
 
@@ -92,6 +111,9 @@ noremap <Leader>w :FixWhitespace<CR>
 
 Plugin 'kana/vim-arpeggio'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-colorscheme-switcher'
+
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/vim-auto-save'
 map <Leader>a :AutoSaveToggle<CR>
