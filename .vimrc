@@ -5,8 +5,33 @@ filetype plugin on
 filetype indent on      " activates indenting for files
 set autoindent          " auto indenting
 set number              " line numbers
-set colorcolumn=80
-colorscheme desert      " colorscheme desert
+set colorcolumn=80      " highlight 80th character
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+" These colorschemes seem to work well without any other adjustments
+" colorscheme anderson
+colorscheme blacklight
+" colorscheme blink
+" colorscheme candypaper
+" colorscheme cobalt2
+" colorscheme flatui
+" colorscheme gotham256
+
+" These colorschemes might work with some adjustments to background
+" colorscheme bluez
+" colorscheme borland
+" colorscheme brogrammer
+" colorscheme marlccio
+
+set t_Co=256
+" set background=dark
+" highlight Normal ctermbg=NONE
+" highlight nonText ctermbg=NONE
+
 set nobackup            " get rid of annoying ~file
 
 set ttyfast             " Send more characters for redraws
@@ -15,9 +40,19 @@ set mouse=a             " Enable mouse use in all modes
 set tabstop=2           " 2-space tabs
 set shiftwidth=2        " size of an indent
 set expandtab           " always uses spaces instead of tab characters
-let mapleader = "\<Space>"
+let mapleader = "\<Space>" " use Space as leader key
 
 noremap <Leader>s :set hlsearch! hlsearch?<CR>
+
+" <Leader>+c copies to system (X) clipboard in visual mode
+let g:os = substitute(system('uname'), '\n', '', '')
+if g:os == "Linux"
+  vmap <Leader>c :w !xsel -ib<CR><CR>
+  map <Leader>v :read !xsel -o<CR>
+elseif g:os == "Darwin"
+  vmap <Leader>c :w !pbcopy<CR><CR>
+  map <Leader>v :read !pbpaste<CR>
+endif
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -26,8 +61,8 @@ filetype off                  " required
 map ; :
 noremap ;; ;
 
-" close buffer with <Leader>+X
-map <Leader>x :Bdelete<CR>
+" close buffer with <Leader>+q
+map <Leader>q :Bdelete<CR>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -79,13 +114,20 @@ Plugin 'skwp/greplace.vim'
 Plugin 'moll/vim-bbye'
 
 Plugin 'bronson/vim-trailing-whitespace'
-map <Leader>w :FixWhitespace<CR>
+noremap <Leader>w :FixWhitespace<CR>
 
 Plugin 'kana/vim-arpeggio'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-colorscheme-switcher'
+
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/vim-auto-save'
 map <Leader>a :AutoSaveToggle<CR>
+
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_enabled = 0
+map <Leader>i :IndentLinesToggle<CR>
 
 " JS and JSX
 Plugin 'pangloss/vim-javascript'
@@ -93,6 +135,7 @@ Plugin 'mxw/vim-jsx'
 
 Plugin 'scrooloose/nerdtree.git'
 map <C-T> :NERDTreeToggle<CR>
+map <Leader>f :NERDTreeFind<CR>
 
 Plugin 'ap/vim-buftabline'
 set hidden
@@ -120,7 +163,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Map simultaneous 'jk' to ESC in Insert mode
+" For some reason this only works at the end of .vimrc
+
+" Map simultaneous 'jk' to ESC in Insert and Visual mode
 call arpeggio#map('iv', '', 0, 'jk', '<Esc>')
-" set t_Co=256
-" colorscheme solarized
+
