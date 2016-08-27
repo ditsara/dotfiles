@@ -15,8 +15,9 @@ set mouse=a             " Enable mouse use in all modes
 set tabstop=2           " 2-space tabs
 set shiftwidth=2        " size of an indent
 set expandtab           " always uses spaces instead of tab characters
+let mapleader = "\<Space>"
 
-noremap <F4> :set hlsearch! hlsearch?<CR>
+noremap <Leader>s :set hlsearch! hlsearch?<CR>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -24,6 +25,9 @@ filetype off                  " required
 " enter command mode with semicolon
 map ; :
 noremap ;; ;
+
+" close buffer with <Leader>+X
+map <Leader>x :Bdelete<CR>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -72,11 +76,16 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'Raimondi/delimitMate'
 Plugin 'skwp/greplace.vim'
+Plugin 'moll/vim-bbye'
+
 Plugin 'bronson/vim-trailing-whitespace'
+map <Leader>w :FixWhitespace<CR>
+
 Plugin 'kana/vim-arpeggio'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/vim-auto-save'
+map <Leader>a :AutoSaveToggle<CR>
 
 " JS and JSX
 Plugin 'pangloss/vim-javascript'
@@ -112,6 +121,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Map simultaneous 'jk' to ESC in Insert mode
-call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+call arpeggio#map('iv', '', 0, 'jk', '<Esc>')
 " set t_Co=256
 " colorscheme solarized
