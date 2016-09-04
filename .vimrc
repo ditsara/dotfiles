@@ -42,7 +42,12 @@ set shiftwidth=2        " size of an indent
 set expandtab           " always uses spaces instead of tab characters
 let mapleader = "\<Space>" " use Space as leader key
 
+" toggle search highlighting
 noremap <Leader>s :set hlsearch! hlsearch?<CR>
+" split pane vertically
+noremap <Leader>wv :vsp<CR>
+" toggle current pane
+noremap <Leader>ww :wincmd w<CR>
 
 " <Leader>+c copies to system clipboard in visual mode
 " OS detection here maps it either to xsel (Linux) or pbcopy (Mac)
@@ -135,13 +140,13 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
 Plugin 'scrooloose/nerdtree.git'
-map <C-T> :NERDTreeToggle<CR>
+map <Leader>t :NERDTreeToggle<CR>
 map <Leader>f :NERDTreeFind<CR>
 
 Plugin 'ap/vim-buftabline'
 set hidden
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-M> :bprev<CR>
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>m :bprev<CR>
 
 " Snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -168,4 +173,10 @@ filetype plugin indent on    " required
 
 " Map simultaneous 'jk' to ESC in Insert and Visual mode
 call arpeggio#map('iv', '', 0, 'jk', '<Esc>')
+
+" Map simultaneous 'w+<direction' to move cursor between windows
+call arpeggio#map('n', '', 0, 'wl', ':wincmd l<CR>')
+call arpeggio#map('n', '', 0, 'wh', ':wincmd h<CR>')
+call arpeggio#map('n', '', 0, 'wj', ':wincmd j<CR>')
+call arpeggio#map('n', '', 0, 'wk', ':wincmd k<CR>')
 
