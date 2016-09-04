@@ -1,1 +1,4 @@
-# My VIMRC
+# My dotfiles
+
+* .vimrc
+* .tmux.conf
