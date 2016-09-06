@@ -70,7 +70,7 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='vim'
-  export BUNDLER_EDITOR='atom'
+  export BUNDLER_EDITOR='vim'
 fi
 
 # Compilation flags
