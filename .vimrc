@@ -14,11 +14,10 @@ set foldlevel=1         "this is just what i use
 
 " These colorschemes seem to work well without any other adjustments
 " colorscheme anderson
-colorscheme blacklight
+" colorscheme blacklight
 " colorscheme blink
 " colorscheme candypaper
-" colorscheme cobalt2
-" colorscheme flatui
+colorscheme cobalt2
 " colorscheme gotham256
 
 " These colorschemes might work with some adjustments to background
@@ -139,6 +138,8 @@ map <Leader>i :IndentLinesToggle<CR>
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
+" Disable unicode arrows for ChromeOS compatibility
+let g:NERDTreeDirArrows=0
 Plugin 'scrooloose/nerdtree.git'
 map <Leader>t :NERDTreeToggle<CR>
 map <Leader>f :NERDTreeFind<CR>
@@ -179,4 +180,7 @@ call arpeggio#map('n', '', 0, 'wl', ':wincmd l<CR>')
 call arpeggio#map('n', '', 0, 'wh', ':wincmd h<CR>')
 call arpeggio#map('n', '', 0, 'wj', ':wincmd j<CR>')
 call arpeggio#map('n', '', 0, 'wk', ':wincmd k<CR>')
+" Map simultaneous 't+<direction>' to move buffers
+call arpeggio#map('n', '', 0, 'tj', ':bnext<CR>')
+call arpeggio#map('n', '', 0, 'tk', ':bprev<CR>')
 

@@ -103,3 +103,8 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
+# python virtualenv
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=/home/ditsara/.virtualenvs
+source ~/.local/bin/virtualenvwrapper.sh
+export PIP_VIRTUALENV_BASE=/home/ditsara/.virtualenvs
