@@ -138,8 +138,6 @@ map <Leader>i :IndentLinesToggle<CR>
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
-" Disable unicode arrows for ChromeOS compatibility
-let g:NERDTreeDirArrows=0
 Plugin 'scrooloose/nerdtree.git'
 map <Leader>t :NERDTreeToggle<CR>
 map <Leader>f :NERDTreeFind<CR>
@@ -184,3 +182,6 @@ call arpeggio#map('n', '', 0, 'wk', ':wincmd k<CR>')
 call arpeggio#map('n', '', 0, 'tj', ':bnext<CR>')
 call arpeggio#map('n', '', 0, 'tk', ':bprev<CR>')
 
+" Disable unicode arrows for ChromeOS compatibility
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = '<'
