@@ -129,7 +129,6 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/vim-auto-save'
 map <Leader>a :AutoSaveToggle<CR>
 

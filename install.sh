@@ -6,7 +6,8 @@ sudo apt-get install -y \
   cmake \
   python-dev \
   python3-dev \
-  build-essential
+  build-essential \
+  vim-youcompleteme
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
