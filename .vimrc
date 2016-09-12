@@ -48,6 +48,9 @@ noremap <Leader>wv :vsp<CR>
 " toggle current pane
 noremap <Leader>ww :wincmd w<CR>
 
+" search for visual selection with //
+vnoremap // y/<C-R>"<CR>
+
 " <Leader>+c copies to system clipboard in visual mode
 " OS detection here maps it either to xsel (Linux) or pbcopy (Mac)
 let g:os = substitute(system('uname'), '\n', '', '')
@@ -178,9 +181,9 @@ call arpeggio#map('n', '', 0, 'wl', ':wincmd l<CR>')
 call arpeggio#map('n', '', 0, 'wh', ':wincmd h<CR>')
 call arpeggio#map('n', '', 0, 'wj', ':wincmd j<CR>')
 call arpeggio#map('n', '', 0, 'wk', ':wincmd k<CR>')
-" Map simultaneous 't+<direction>' to move buffers
-call arpeggio#map('n', '', 0, 'tj', ':bnext<CR>')
-call arpeggio#map('n', '', 0, 'tk', ':bprev<CR>')
+" Map simultaneous 's+<direction>' to move buffers
+call arpeggio#map('n', '', 0, 'sk', ':bnext<CR>')
+call arpeggio#map('n', '', 0, 'sj', ':bprev<CR>')
 
 " Disable unicode arrows for ChromeOS compatibility
 let g:NERDTreeDirArrowExpandable = '>'
