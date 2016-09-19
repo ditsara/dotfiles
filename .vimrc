@@ -188,3 +188,6 @@ call arpeggio#map('n', '', 0, 'sj', ':bprev<CR>')
 " Disable unicode arrows for ChromeOS compatibility
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '<'
+
+" Use git for faster indexing of Ctrl-P
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
