@@ -1,4 +1,4 @@
-source /etc/zprofile
+source /etc/zsh/zprofile
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/ditsara/.oh-my-zsh
@@ -104,7 +104,7 @@ compctl -K _pip_completion pip
 # pip zsh completion end
 
 # python virtualenv
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=/home/ditsara/.virtualenvs
-source ~/.local/bin/virtualenvwrapper.sh
-export PIP_VIRTUALENV_BASE=/home/ditsara/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# export WORKON_HOME=/home/ditsara/.virtualenvs
+# source ~/.local/bin/virtualenvwrapper.sh
+# export PIP_VIRTUALENV_BASE=/home/ditsara/.virtualenvs
