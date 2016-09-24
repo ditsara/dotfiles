@@ -108,3 +108,5 @@ compctl -K _pip_completion pip
 # export WORKON_HOME=/home/ditsara/.virtualenvs
 # source ~/.local/bin/virtualenvwrapper.sh
 # export PIP_VIRTUALENV_BASE=/home/ditsara/.virtualenvs
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
