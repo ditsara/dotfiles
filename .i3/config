@@ -156,7 +156,6 @@ client.urgent           #900000 #900000 #ffffff #2b2b2b
 bar {
     position top
     status_command i3status --config ~/.i3/i3status.conf
-    tray_output LVDS
     colors{
         background #232323
         statusline #DCDCDC
