@@ -16,18 +16,20 @@ set foldlevel=1         "this is just what i use
 " colorscheme anderson
 " colorscheme blacklight
 " colorscheme blink
-" colorscheme candypaper
+" colorscheme candyman
 " colorscheme cobalt2
-" colorscheme gotham256
+colorscheme gotham256
 
 " These colorschemes might work with some adjustments to background
 " colorscheme bluez
 " colorscheme borland
-colorscheme brogrammer
-" colorscheme marlccio
+" colorscheme brogrammer
+" colorscheme marloccio
 
 set t_Co=256
-" set background=dark
+" clear t_ut so vim bg color doesn't conflict with term bg (tmux)
+set t_ut=
+set background=dark
 " highlight Normal ctermbg=NONE
 " highlight nonText ctermbg=NONE
 
