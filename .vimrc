@@ -17,13 +17,13 @@ set foldlevel=1         "this is just what i use
 " colorscheme blacklight
 " colorscheme blink
 " colorscheme candypaper
-colorscheme cobalt2
+" colorscheme cobalt2
 " colorscheme gotham256
 
 " These colorschemes might work with some adjustments to background
 " colorscheme bluez
 " colorscheme borland
-" colorscheme brogrammer
+colorscheme brogrammer
 " colorscheme marlccio
 
 set t_Co=256
