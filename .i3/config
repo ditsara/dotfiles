@@ -172,6 +172,8 @@ bar {
 exec setxkbmap -option ctrl:swapcaps
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-volume-control-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id pactl load-module module-bluetooth-discover
 exec xsetroot -solid "#000000"
 
 # Enable keyboard controls
