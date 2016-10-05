@@ -98,6 +98,9 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
+Plugin 'buffet.vim'
+noremap <Leader>b :Bufferlist<CR>
+
 Plugin 'ctrlpvim/ctrlp.vim'
 " Treat spaces as underscores when searching
 let g:ctrlp_abbrev = {
