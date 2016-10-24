@@ -102,6 +102,7 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 # pip zsh completion end
+export PATH=~/.local/bin:$PATH
 
 # python virtualenv
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
