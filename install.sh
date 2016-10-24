@@ -9,7 +9,9 @@ sudo apt-get install -y \
   build-essential \
   vim-youcompleteme \
   xsel \
-  msttcorefonts fonts-droid fonts-noto
+  msttcorefonts fonts-droid fonts-noto \
+  python-pip \
+  openvpn
 
 printf "Updating fonts config file...\n"
 printf "<?xml version='1.0'?>\n<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>\n<fontconfig>\n<match target="font">\n<edit mode="assign" name="rgba">\n<const>rgb</const>\n</edit>\n</match>\n<match target="font">\n<edit mode="assign" name="hinting">\n<bool>true</bool>\n</edit>\n</match>

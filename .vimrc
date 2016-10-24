@@ -17,7 +17,9 @@ set foldlevel=1         "this is just what i use
 " colorscheme blacklight
 " colorscheme blink
 " colorscheme candypaper
-colorscheme cobalt2
+" colorscheme cobalt2
+" colorscheme gryffin
+colorscheme synic
 " colorscheme gotham256
 
 " These colorschemes might work with some adjustments to background
@@ -99,7 +101,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 Plugin 'buffet.vim'
-noremap <Leader>b :Bufferlist<CR>
+noremap <Leader>l :Bufferlist<CR>
 
 Plugin 'ctrlpvim/ctrlp.vim'
 " Treat spaces as underscores when searching
@@ -117,6 +119,11 @@ let g:ctrlp_abbrev = {
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'ngmy/vim-rubocop'
+let g:vimrubocop_config = '~/.rubocop.yml'
+Plugin 'jgdavey/vim-blockle'
+Plugin 'Shutnik/jshint2.vim'
+
 Plugin 'slim-template/vim-slim.git'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary.git'
