@@ -21,6 +21,7 @@ set foldlevel=1         "this is just what i use
 " colorscheme gryffin
 colorscheme synic
 " colorscheme gotham256
+" colorscheme termschool
 
 " These colorschemes might work with some adjustments to background
 " colorscheme bluez
@@ -49,9 +50,12 @@ noremap <Leader>s :set hlsearch! hlsearch?<CR>
 noremap <Leader>wv :vsp<CR>
 " toggle current pane
 noremap <Leader>ww :wincmd w<CR>
+" Ctrl-J inserts newline
+nnoremap <C-J> a<CR><Esc>
 
 " search for visual selection with //
 vnoremap // y/<C-R>"<CR>
+vnoremap /* y:grep -rn '<C-R>"'
 
 " <Leader>+c copies to system clipboard in visual mode
 " OS detection here maps it either to xsel (Linux) or pbcopy (Mac)
@@ -120,7 +124,6 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ngmy/vim-rubocop'
-let g:vimrubocop_config = '~/.rubocop.yml'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'Shutnik/jshint2.vim'
 

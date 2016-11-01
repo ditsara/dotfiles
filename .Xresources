@@ -1,7 +1,7 @@
 URxvt*transparent: true
 URxvt*shading: 10
 URxvt*termName: screen-256color
-URxvt*geometry: 240x84
+URxvt*geometry: 100x40
 URxvt*loginShell: true
 URxvt*scrollColor: #777777
 URxvt*scrollstyle: plain
