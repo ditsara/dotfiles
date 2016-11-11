@@ -1,3 +1,5 @@
+URxvt*transparent: true
+URxvt*shading: 10
 URxvt*termName: screen-256color
 URxvt*geometry: 240x84
 URxvt*loginShell: true
@@ -41,9 +43,9 @@ URxvt.depth: 0
 URxvt.intensityStyles:  false
 ! Turn it on here... (then boldFont)
 URxvt.allow_bold:       false
-URxvt.font:             xft:Ubuntu Mono:style=Regular:pixelsize=17
+URxvt.font:             xft:DejaVu Sans Mono:style=Regular:pixelsize=12
 ! ... but put this on Regular, else the ls output is overly fat
-URxvt.boldFont:         xft:Ubuntu Mono:style=Bold:pixelsize=17
+URxvt.boldFont:         xft:DejaVu Sans Mono:style=Bold:pixelsize=12
 URxvt.saveLines:        8192
 
 

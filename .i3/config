@@ -63,7 +63,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+h split h
+bindsym $mod+Shift+v split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -86,7 +86,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -151,11 +151,20 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#colors:                border  backgr. text    indicator
-client.focused          #007030 #007030 #ffffff #00e6b8
-client.focused_inactive #888888 #2b2b2b #ffffff #2b2b2b
-client.unfocused        #888888 #2b2b2b #ffffff #2b2b2b
-client.urgent           #900000 #900000 #ffffff #2b2b2b
+# color vars
+set $focusfg #cccccc
+set $focusbg #164bab
+set $focusind #1f67eb
+set $blurbg #020812
+set $blurfg #ffffff
+set $urgentbg #900000
+set $barbg #222222
+
+#colors:                border    backgr    text     indicator
+client.focused          $focusbg  $focusbg  $focusfg $focusind
+client.focused_inactive $blurbg   $blurbg   $focusfg $blurbg
+client.unfocused        $blurbg   $blurbg   $focusfg $blurbg
+client.urgent           $urgentbg $urgentbg $focusfg $blurbg
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -163,18 +172,19 @@ bar {
     position top
     status_command i3status --config ~/.i3/i3status.conf
     colors{
-        background #232323
-        statusline #DCDCDC
+        background $barbg
+        statusline $focusfg
     }
 }
 
 # Startup applets
 exec setxkbmap -option ctrl:swapcaps
 exec --no-startup-id nm-applet
-exec --no-startup-id mate-volume-control-applet
-exec --no-startup-id blueman-applet
-exec --no-startup-id pactl load-module module-bluetooth-discover
-exec xsetroot -solid "#000000"
+exec --no-startup-id volumeicon
+exec --no-startup-id compton -b
+# exec --no-startup-id blueman-applet
+# exec --no-startup-id pactl load-module module-bluetooth-discover
+exec eval $(cat ~/.fehbg)
 
 # Enable keyboard controls
 # Pulse Audio controls
@@ -187,3 +197,8 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Screenshots
+bindsym Print exec scrot $HOME/Pictures/screenshot-`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym $mod+Print exec scrot -u $HOME/Pictures/screenshot-`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym $mod+Shift+Print exec scrot -s $HOME/Pictures/screenshot-`date +%Y-%m-%d_%H:%M:%S`.png
