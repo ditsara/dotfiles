@@ -1,5 +1,7 @@
 set backspace=2         " backspace in insert mode works like normal editor
 syntax on               " syntax highlighting
+" au BufReadPost *.es6 set syntax=jsx
+au BufNewFile,BufRead,BufReadPost *.es6 setf javascript
 filetype on
 filetype plugin on
 filetype indent on      " activates indenting for files
@@ -16,18 +18,18 @@ set foldlevel=1         "this is just what i use
 " colorscheme anderson
 " colorscheme blacklight
 " colorscheme blink
-" colorscheme candypaper
+" colorscheme candyman
 " colorscheme cobalt2
 " colorscheme gryffin
-colorscheme synic
-" colorscheme gotham256
+" colorscheme synic
+colorscheme gotham256
 " colorscheme termschool
 
 " These colorschemes might work with some adjustments to background
 " colorscheme bluez
 " colorscheme borland
 " colorscheme brogrammer
-" colorscheme marlccio
+" colorscheme maroloccio
 
 set t_Co=256
 " set background=dark
@@ -125,7 +127,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'jgdavey/vim-blockle'
-Plugin 'Shutnik/jshint2.vim'
+Plugin 'scrooloose/syntastic'
 
 Plugin 'slim-template/vim-slim.git'
 Plugin 'tpope/vim-surround'
@@ -203,3 +205,29 @@ let g:NERDTreeDirArrowCollapsible = '<'
 
 " Use git for faster indexing of Ctrl-P
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
+
+" Syntastic settings
+let g:syntastic_javascript_checkers = ['eslint']
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+noremap <Leader>c :SyntasticCheck<CR>
+let g:syntastic_mode_map = { "mode": "passive" }
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_loc_list_height = 5
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = 'E'
+let g:syntastic_style_error_symbol = 'e'
+let g:syntastic_warning_symbol = 'W'
+let g:syntastic_style_warning_symbol = 'w'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
