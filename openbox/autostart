@@ -1,0 +1,3 @@
+compton -b
+sh ~/.fehbg
+tint2 &
