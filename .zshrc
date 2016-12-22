@@ -90,7 +90,7 @@ fi
 alias mosh-stop-others="kill \
   $(ps --no-headers --sort=start_time -C mosh-server -o pid | head -n -1)"
 function dcor() {
-  docker-compose run --rm web "$1"
+  docker-compose run --rm web "$@"
 }
 
 ### Added by the Heroku Toolbelt
