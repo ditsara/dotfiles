@@ -89,6 +89,9 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias mosh-stop-others="kill \
   $(ps --no-headers --sort=start_time -C mosh-server -o pid | head -n -1)"
+function dcor() {
+  docker-compose run --rm web "$1"
+}
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
