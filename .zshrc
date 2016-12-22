@@ -53,7 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git wd)
+plugins=(git wd docker-compose)
 
 # User configuration
 
@@ -87,6 +87,8 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias mosh-stop-others="kill \
+  $(ps --no-headers --sort=start_time -C mosh-server -o pid | head -n -1)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
