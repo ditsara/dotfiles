@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+
+['America/Los_Angeles', 'America/New_York', 'Asia/Bangkok'].each do |timezone|
+  system "echo #{timezone.rjust(20)}: $(TZ=#{timezone} date)"
+end
+system "echo UTC: $(date -u)"

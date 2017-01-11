@@ -33,7 +33,9 @@ colorscheme ubaryd
 " colorscheme maroloccio
 
 set t_Co=256
-" set background=dark
+" clear t_ut so vim bg color doesn't conflict with term bg (tmux)
+set t_ut=
+set background=dark
 " highlight Normal ctermbg=NONE
 " highlight nonText ctermbg=NONE
 
