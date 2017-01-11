@@ -53,7 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git wd)
+plugins=(git wd docker-compose)
 
 # User configuration
 
@@ -111,3 +111,4 @@ export PATH=~/.local/bin:$PATH
 # export PIP_VIRTUALENV_BASE=/home/ditsara/.virtualenvs
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export GOPATH=$HOME/Development/golang
