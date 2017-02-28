@@ -19,12 +19,12 @@ set foldlevel=1         "this is just what i use
 " colorscheme blacklight
 " colorscheme blink
 " colorscheme candyman
-" colorscheme cobalt2
+colorscheme cobalt2
 " colorscheme gryffin
 " colorscheme synic
 " colorscheme gotham256
 " colorscheme termschool
-colorscheme ubaryd
+" colorscheme ubaryd
 
 " These colorschemes might work with some adjustments to background
 " colorscheme bluez
@@ -62,16 +62,20 @@ nnoremap <C-J> a<CR><Esc>
 vnoremap // y/<C-R>"<CR>
 vnoremap /* y:grep -rn '<C-R>"'
 
+set clipboard=unnamedplus
+" No longer using this (use vim-gtk to get system clipboard option).
+" Just keeping it around for future reference
+"
 " <Leader>+c copies to system clipboard in visual mode
 " OS detection here maps it either to xsel (Linux) or pbcopy (Mac)
-let g:os = substitute(system('uname'), '\n', '', '')
-if g:os == "Linux"
-  vmap <Leader>c :w !xsel -ib<CR><CR>
-  map <Leader>v :read !xsel -ob<CR>
-elseif g:os == "Darwin"
-  vmap <Leader>c :w !pbcopy<CR><CR>
-  map <Leader>v :read !pbpaste<CR>
-endif
+" let g:os = substitute(system('uname'), '\n', '', '')
+" if g:os == "Linux"
+"   vmap <Leader>c :w !xsel -ib<CR><CR>
+"   map <Leader>v :read !xsel -ob<CR>
+" elseif g:os == "Darwin"
+"   vmap <Leader>c :w !pbcopy<CR><CR>
+"   map <Leader>v :read !pbpaste<CR>
+" endif
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
