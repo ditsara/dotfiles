@@ -34,8 +34,8 @@ colorscheme cobalt2
 
 set t_Co=256
 " clear t_ut so vim bg color doesn't conflict with term bg (tmux)
-set t_ut=
-set background=dark
+" set t_ut=
+" set background=dark
 " highlight Normal ctermbg=NONE
 " highlight nonText ctermbg=NONE
 
@@ -51,8 +51,32 @@ let mapleader = "\<Space>" " use Space as leader key
 
 " toggle search highlighting
 noremap <Leader>s :set hlsearch! hlsearch?<CR>
-" split pane vertically
+" split pane vertically / horizontally
 noremap <Leader>wv :vsp<CR>
+noremap <Leader>wh :sp<CR>
+
+" alt-direction moves cursor between windows
+set <m-l>=l
+set <m-h>=h
+set <m-j>=j
+set <m-k>=k
+noremap <m-l> :wincmd l<CR>
+noremap <m-h> :wincmd h<CR>
+noremap <m-j> :wincmd j<CR>
+noremap <m-k> :wincmd k<CR>
+" alt-m and alt-n switches buffers
+set <m-m>=m
+set <m-n>=n
+noremap <m-m> :bnext<CR>
+noremap <m-n> :bprev<CR>
+" alt-[ and alt-] switches tab pages
+set <m-u>=u
+set <m-i>=i
+noremap <m-u> :tabp<CR>
+noremap <m-i> :tabn<CR>
+" jk exits insert mode
+inoremap jk <Esc>
+
 " toggle current pane
 noremap <Leader>ww :wincmd w<CR>
 " Ctrl-J inserts newline
@@ -146,7 +170,6 @@ Plugin 'moll/vim-bbye'
 Plugin 'bronson/vim-trailing-whitespace'
 noremap <Leader>w :FixWhitespace<CR>
 
-Plugin 'kana/vim-arpeggio'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
@@ -166,10 +189,14 @@ Plugin 'scrooloose/nerdtree.git'
 map <Leader>t :NERDTreeToggle<CR>
 map <Leader>f :NERDTreeFind<CR>
 
+" Toggle quickfix and location lists
+Plugin 'Valloric/ListToggle'
+let g:lt_location_list_toggle_map = '<Leader>9'
+let g:lt_quickfix_list_toggle_map = '<Leader>0'
+
+
 Plugin 'ap/vim-buftabline'
 set hidden
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>m :bprev<CR>
 
 " Snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -193,18 +220,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " For some reason this only works at the end of .vimrc
-
-" Map simultaneous 'jk' to ESC in Insert and Visual mode
-call arpeggio#map('iv', '', 0, 'jk', '<Esc>')
-
-" Map simultaneous 'w+<direction' to move cursor between windows
-call arpeggio#map('n', '', 0, 'wl', ':wincmd l<CR>')
-call arpeggio#map('n', '', 0, 'wh', ':wincmd h<CR>')
-call arpeggio#map('n', '', 0, 'wj', ':wincmd j<CR>')
-call arpeggio#map('n', '', 0, 'wk', ':wincmd k<CR>')
-" Map simultaneous 's+<direction>' to move buffers
-call arpeggio#map('n', '', 0, 'sk', ':bnext<CR>')
-call arpeggio#map('n', '', 0, 'sj', ':bprev<CR>')
 
 " Disable unicode arrows for ChromeOS compatibility
 let g:NERDTreeDirArrowExpandable = '>'

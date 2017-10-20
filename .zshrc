@@ -109,11 +109,8 @@ compctl -K _pip_completion pip
 # pip zsh completion end
 export PATH=~/.local/bin:$PATH
 
-# python virtualenv
-# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# export WORKON_HOME=/home/ditsara/.virtualenvs
-# source ~/.local/bin/virtualenvwrapper.sh
-# export PIP_VIRTUALENV_BASE=/home/ditsara/.virtualenvs
+export VULTR_API_KEY=PEU6LONFY57REYP2RJXEE77EGQZ3PIOKLQYA
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# golang setup
 export GOPATH=$HOME/Development/golang
+export PATH="$PATH:$GOPATH/bin"
