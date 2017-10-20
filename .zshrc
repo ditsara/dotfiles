@@ -109,8 +109,6 @@ compctl -K _pip_completion pip
 # pip zsh completion end
 export PATH=~/.local/bin:$PATH
 
-export VULTR_API_KEY=PEU6LONFY57REYP2RJXEE77EGQZ3PIOKLQYA
-
 # golang setup
 export GOPATH=$HOME/Development/golang
 export PATH="$PATH:$GOPATH/bin"
