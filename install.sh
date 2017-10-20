@@ -2,9 +2,7 @@
 
 sudo apt-get install -y \
   git \
-  cmake \
-  build-essential \
-  xsel \
+  mosh \
   openvpn
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
