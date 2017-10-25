@@ -19,12 +19,12 @@ set foldlevel=1         "this is just what i use
 " colorscheme blacklight
 " colorscheme blink
 " colorscheme candyman
-colorscheme cobalt2
+" colorscheme cobalt2
 " colorscheme gryffin
 " colorscheme synic
 " colorscheme gotham256
 " colorscheme termschool
-" colorscheme ubaryd
+colorscheme ubaryd
 
 " These colorschemes might work with some adjustments to background
 " colorscheme bluez
@@ -74,8 +74,9 @@ set <m-u>=u
 set <m-i>=i
 noremap <m-u> :tabp<CR>
 noremap <m-i> :tabn<CR>
-" jk exits insert mode
-inoremap jk <Esc>
+" kj exits insert mode
+inoremap kj <Esc>
+vnoremap kj <Esc>
 
 " toggle current pane
 noremap <Leader>ww :wincmd w<CR>
