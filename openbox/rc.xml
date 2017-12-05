@@ -261,10 +261,14 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
-    <!-- Take a screenshot of the current window with scrot when Alt+Print are pressed -->
     <keybind key="A-Print">
       <action name="Execute">
         <command>mate-screenshot -w</command>
+      </action>
+    </keybind>
+    <keybind key="W-Print">
+      <action name="Execute">
+        <command>mate-screenshot -a</command>
       </action>
     </keybind>
     <!-- Keybindings for window switching -->

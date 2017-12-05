@@ -24,6 +24,7 @@ set foldlevel=1         "this is just what i use
 " colorscheme synic
 " colorscheme gotham256
 " colorscheme termschool
+" colorscheme umber-green
 colorscheme ubaryd
 
 " These colorschemes might work with some adjustments to background
