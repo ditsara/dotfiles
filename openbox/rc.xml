@@ -268,7 +268,7 @@
       </action>
     </keybind>
     <!-- Keybindings for window switching -->
-    <keybind key="W-Tab">
+    <keybind key="A-Tab">
       <action name="NextWindow">
         <finalactions>
           <action name="Focus"/>
@@ -277,7 +277,7 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="W-S-Tab">
+    <keybind key="A-S-Tab">
       <action name="PreviousWindow">
         <finalactions>
           <action name="Focus"/>
@@ -286,10 +286,9 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="W-A-Tab">
+    <keybind key="W-Tab">
       <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
+        <allDesktops>yes</allDesktops>
         <finalactions>
           <action name="Focus"/>
           <action name="Raise"/>
