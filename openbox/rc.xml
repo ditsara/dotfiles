@@ -324,6 +324,22 @@
         <height>100%</height>
       </action>
     </keybind>
+    <keybind key="W-S-bracketright">
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>66%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+    <keybind key="W-S-bracketleft">
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>66%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
     <keybind key="W-equal">
       <action name="ToggleMaximize"/>
     </keybind>

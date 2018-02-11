@@ -87,11 +87,11 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias mosh-stop-others="kill \
-  $(ps --no-headers --sort=start_time -C mosh-server -o pid | head -n -1)"
 function dcor() {
 docker-compose run --rm web "$@"
 }
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
