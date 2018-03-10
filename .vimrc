@@ -1,3 +1,5 @@
+" GENERAL
+
 set backspace=2         " backspace in insert mode works like normal editor
 syntax on               " syntax highlighting
 " au BufReadPost *.es6 set syntax=jsx
@@ -8,48 +10,22 @@ filetype indent on      " activates indenting for files
 set autoindent          " auto indenting
 set number              " line numbers
 set colorcolumn=80      " highlight 80th character
-
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
-
-" These colorschemes seem to work well without any other adjustments
-" colorscheme anderson
-" colorscheme blacklight
-" colorscheme blink
-" colorscheme candyman
-" colorscheme cobalt2
-" colorscheme gryffin
-" colorscheme synic
-" colorscheme gotham256
-" colorscheme termschool
-" colorscheme umber-green
-colorscheme ubaryd
-
-" These colorschemes might work with some adjustments to background
-" colorscheme bluez
-" colorscheme borland
-" colorscheme brogrammer
-" colorscheme maroloccio
-
-set t_Co=256
-" clear t_ut so vim bg color doesn't conflict with term bg (tmux)
-" set t_ut=
-" set background=dark
-" highlight Normal ctermbg=NONE
-" highlight nonText ctermbg=NONE
-
 set nobackup            " get rid of annoying ~file
-
 set ttyfast             " Send more characters for redraws
 set mouse=a             " Enable mouse use in all modes
 
 set tabstop=2           " 2-space tabs
 set shiftwidth=2        " size of an indent
 set expandtab           " always uses spaces instead of tab characters
-let mapleader = "\<Space>" " use Space as leader key
 
+
+" KEYBINDINGS
+
+let mapleader = "\<Space>" " use Space as leader key
 " toggle search highlighting
 noremap <Leader>s :set hlsearch! hlsearch?<CR>
 " split pane vertically / horizontally
@@ -112,6 +88,9 @@ noremap ;; ;
 
 " close buffer with <Leader>+q
 map <Leader>q :Bdelete<CR>
+
+
+" PACKAGES W VUNDLE
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -221,7 +200,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" For some reason this only works at the end of .vimrc
+
+" PACKAGE CONFIG
 
 " Disable unicode arrows for ChromeOS compatibility
 let g:NERDTreeDirArrowExpandable = '>'
@@ -255,3 +235,33 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+
+" COLORS
+" (NOTE: this section needs to come after vim-colorschemes is loaded)
+
+" These colorschemes seem to work well without any other adjustments
+" colorscheme anderson
+" colorscheme blacklight
+" colorscheme blink
+" colorscheme candyman
+" colorscheme cobalt2
+" colorscheme gryffin
+" colorscheme synic
+" colorscheme gotham256
+" colorscheme termschool
+" colorscheme umber-green
+colorscheme ubaryd
+
+" These colorschemes might work with some adjustments to background
+" colorscheme bluez
+" colorscheme borland
+" colorscheme brogrammer
+" colorscheme maroloccio
+
+set t_Co=256
+" clear t_ut so vim bg color doesn't conflict with term bg (tmux)
+" set t_ut=
+" set background=dark
+" highlight Normal ctermbg=NONE
+" highlight nonText ctermbg=NONE
