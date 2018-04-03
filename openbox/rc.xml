@@ -367,15 +367,6 @@
         <direction>down</direction>
       </action>
     </keybind>
-    <keybind key="W-space">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Tile</name>
-        </startupnotify>
-        <command>~/bin/rtile.rb --all</command>
-      </action>
-    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-r">
       <action name="Execute">

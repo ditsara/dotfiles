@@ -1,0 +1,11 @@
+#!/bin/sh
+
+setxkbmap -query | grep swapcaps > /dev/null
+
+if [ $? -eq 0 ]; then
+  echo "ctrl:swapcaps: OFF"
+  setxkbmap -option
+else
+  echo "ctrl:swapcaps: ON"
+  setxkbmap -option ctrl:swapcaps
+fi
