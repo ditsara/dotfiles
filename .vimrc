@@ -21,6 +21,8 @@ set mouse=a             " Enable mouse use in all modes
 set tabstop=2           " 2-space tabs
 set shiftwidth=2        " size of an indent
 set expandtab           " always uses spaces instead of tab characters
+set path+=**
+set wildmenu
 
 
 " KEYBINDINGS
@@ -62,7 +64,12 @@ nnoremap <C-J> a<CR><Esc>
 
 " search for visual selection with //
 vnoremap // y/<C-R>"<CR>
-vnoremap /* y:grep -rn '<C-R>"'
+vnoremap /* y:grep -rIn '<C-R>"'
+
+nnoremap <Leader>] :!ctags -R .<CR>
+nnoremap <Leader>p :find<space>
+command! Debug norm! Obinding.pry<Esc>
+command! FileName let @+=@%
 
 set clipboard=unnamedplus
 " No longer using this (use vim-gtk to get system clipboard option).
