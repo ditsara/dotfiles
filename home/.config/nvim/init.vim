@@ -160,6 +160,7 @@ let g:NERDTreeDirArrowCollapsible = '<'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
 let g:tagbar_ctags_bin = 'uctags'
 map <Leader>r :TagbarToggle<CR>
+map <Leader>e :TagbarOpenAutoClose<CR>
 
 " COLORS
 " (NOTE: this section needs to come after vim-colorschemes is loaded)
