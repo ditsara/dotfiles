@@ -61,9 +61,6 @@ export PATH=~/.local/bin:~/bin:$PATH
 export GOPATH=$HOME/Development/golang
 export PATH="$PATH:$GOPATH/bin"
 
-# access token(s)
-export DIGITALOCEAN_ACCESS_TOKEN
-
 # my personal shortcuts
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
@@ -72,3 +69,8 @@ alias getclip="xclip -selection c -o"
 function dcor() {
 docker-compose run --rm web "$@"
 }
+
+# load (secret) access token(s) from a separate file
+if [[ -f ".secrets" ]]; then
+  source .secrets
+fi
