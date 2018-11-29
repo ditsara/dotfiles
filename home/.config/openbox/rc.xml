@@ -340,6 +340,16 @@
         <height>100%</height>
       </action>
     </keybind>
+    <keybind key="W-C-bracketright">
+      <action name="MoveResizeTo">
+        <monitor>next</monitor>
+      </action>
+    </keybind>
+    <keybind key="W-C-bracketleft">
+      <action name="MoveResizeTo">
+        <monitor>prev</monitor>
+      </action>
+    </keybind>
     <keybind key="W-equal">
       <action name="ToggleMaximize"/>
     </keybind>
