@@ -49,7 +49,7 @@ tnoremap kj <C-\><C-n>
 nnoremap <C-J> a<CR><Esc>
 " search for visual selection with //
 vnoremap // y/<C-R>"<CR>
-vnoremap /* y:grep -rIn '<C-R>"'
+vnoremap /* y:FuzzyGrep <C-R>"
 
 nnoremap <Leader>p :find<space>
 command! FileName let @+=@%
@@ -81,18 +81,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/buffet.vim'
 noremap <Leader>l :Bufferlist<CR>
 
-Plug 'ctrlpvim/ctrlp.vim'
-" Treat spaces as underscores when searching
-let g:ctrlp_abbrev = {
-    \ 'gmode': 't',
-    \ 'abbrevs': [
-        \ {
-        \ 'pattern': '\(^@.\+\|\\\@<!:.\+\)\@<! ',
-        \ 'expanded': '_',
-        \ 'mode': 'pfrz',
-        \ },
-        \ ]
-    \ }
+Plug 'cloudhead/neovim-fuzzy'
+nnoremap <C-p> :FuzzyOpen<CR>
 
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
