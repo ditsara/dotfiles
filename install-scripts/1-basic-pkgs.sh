@@ -6,4 +6,5 @@ sudo apt-get install -y \
   autossh \
   openvpn \
   ruby \
-  xclip
+  xclip \
+  xdotool
