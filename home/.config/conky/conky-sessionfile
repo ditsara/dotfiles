@@ -1,0 +1,1 @@
+conky -c /home/ditsara/.config/conky/Openbox-Golden-sysinfo.conkyrc & sleep 0.5

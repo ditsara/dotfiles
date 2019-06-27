@@ -1,0 +1,44 @@
+o C-A-Left        	GoToDesktop
+o C-A-Right       	GoToDesktop
+o C-A-Up          	GoToDesktop
+o C-A-Down        	GoToDesktop
+o S-F9            	SendToDesktop
+o S-F10           	SendToDesktop
+o S-F11           	SendToDesktop
+o S-F12           	SendToDesktop
+o F9              	GoToDesktop
+o F10             	GoToDesktop
+o F11             	GoToDesktop
+o F12             	GoToDesktop
+o W-d             	ToggleShowDesktop
+o W-Escape        	Reconfigure
+o A-F4            	Close
+o A-Escape        	Lower
+o W-space         	client-menu
+x Print           	scrot 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
+x A-Print         	scrot -d 5 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
+x W-Print         	deepin-screenshot
+o A-Tab           	NextWindow
+o A-S-Tab         	PreviousWindow
+o W-Tab           	NextWindow
+o W-f             	ToggleFullScreen
+o W-v             	ToggleMaximize
+o W-c             	MoveResizeTo
+o W-b             	MoveResizeTo
+o W-bracketright  	MoveResizeTo
+o W-bracketleft   	MoveResizeTo
+o W-S-bracketright	MoveResizeTo
+o W-S-bracketleft 	MoveResizeTo
+o W-C-bracketright	MoveResizeTo
+o W-C-bracketleft 	MoveResizeTo
+o W-equal         	ToggleMaximize
+o W-minus         	Iconify
+o W-l             	DirectionalCycleWindows
+o W-h             	DirectionalCycleWindows
+o W-k             	DirectionalCycleWindows
+o W-j             	DirectionalCycleWindows
+x W-r             	thunar ~/Downloads
+x W-e             	rofi -show run
+x W-t             	sh -c "if ! terminator; then exo-open --launch TerminalEmulator; fi"
+x W-g             	chromium
+x W-Pause         	lockscreen -- scrot

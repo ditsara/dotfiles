@@ -40,73 +40,45 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Onyx-Citrus</name>
+    <name>Adapta-Openbox-Maia</name>
     <titleLayout>NLIMC</titleLayout>
-    <!--
-      available characters are NDSLIMC, each can occur at most once.
-      N: window icon
-      L: window label (AKA title).
-      I: iconify
-      M: maximize
-      C: close
-      S: shade (roll up/down)
-      D: omnipresent (on all desktops).
-  -->
     <keepBorder>yes</keepBorder>
-    <animateIconify>yes</animateIconify>
+   <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>sans</name>
-      <size>8</size>
-      <!-- font size in points -->
-      <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <name>Roboto</name>
+      <size>11</size>
+      <weight>Normal</weight>
+      <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
-      <name>sans</name>
-      <size>8</size>
-      <!-- font size in points -->
-      <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <name>Roboto</name>
+      <size>11</size>
+      <weight>Normal</weight>
+      <slant>Italic</slant>
     </font>
     <font place="MenuHeader">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>normal</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <name>Roboto</name>
+      <size>11</size>
+      <weight>Normal</weight>
+      <slant>Normal</slant>
     </font>
     <font place="MenuItem">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>normal</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <name>Roboto</name>
+      <size>10</size>
+      <weight>Normal</weight>
+      <slant>Normal</slant>
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <name>Roboto</name>
+      <size>10</size>
+      <weight>Normal</weight>
+      <slant>Normal</slant>
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <name>Roboto</name>
+      <size>10</size>
+      <weight>Normal</weight>
+      <slant>Normal</slant>
     </font>
   </theme>
   <desktops>
@@ -261,14 +233,20 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
+    <!-- Launch scrot when Print is pressed -->
+    <keybind key="Print">
+      <action name="Execute">
+        <command>scrot 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'</command>
+      </action>
+    </keybind>
     <keybind key="A-Print">
       <action name="Execute">
-        <command>mate-screenshot -w</command>
+        <command>scrot -d 5 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'</command>
       </action>
     </keybind>
     <keybind key="W-Print">
       <action name="Execute">
-        <command>mate-screenshot -a</command>
+        <command>deepin-screenshot</command>
       </action>
     </keybind>
     <!-- Keybindings for window switching -->
@@ -306,6 +284,18 @@
     <keybind key="W-v">
       <action name="ToggleMaximize">
         <direction>vertical</direction>
+      </action>
+    </keybind>
+    <keybind key="W-c">
+      <action name="MoveResizeTo">
+        <y>0</y>
+        <height>50%</height>
+      </action>
+    </keybind>
+    <keybind key="W-b">
+      <action name="MoveResizeTo">
+        <y>-0</y>
+        <height>50%</height>
       </action>
     </keybind>
     <keybind key="W-bracketright">
@@ -384,7 +374,7 @@
           <enabled>true</enabled>
           <name>File Manager</name>
         </startupnotify>
-        <command>caja ~/Downloads</command>
+        <command>thunar ~/Downloads</command>
       </action>
     </keybind>
     <keybind key="W-e">
@@ -402,7 +392,7 @@
           <enabled>true</enabled>
           <name>Terminal</name>
         </startupnotify>
-        <command>sh -c "if ! terminator; then mate-terminal; fi"</command>
+        <command>sh -c "if ! terminator; then exo-open --launch TerminalEmulator; fi"</command>
       </action>
     </keybind>
     <keybind key="W-g">
@@ -411,7 +401,7 @@
           <enabled>true</enabled>
           <name>Chrome</name>
         </startupnotify>
-        <command>google-chrome</command>
+        <command>chromium</command>
       </action>
     </keybind>
     <keybind key="W-Pause">
@@ -420,13 +410,7 @@
           <enabled>true</enabled>
           <name>Lock Screen</name>
         </startupnotify>
-        <command>xdg-screensaver lock</command>
-      </action>
-    </keybind>
-    <!-- Launch scrot when Print is pressed -->
-    <keybind key="Print">
-      <action name="Execute">
-        <command>mate-screenshot</command>
+        <command>lockscreen -- scrot</command>
       </action>
     </keybind>
   </keyboard>

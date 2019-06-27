@@ -1,0 +1,56 @@
+conky.config = {
+	alignment = 'top_right',
+	background = true,
+	color2 = '8B8673',
+	cpu_avg_samples = 2,
+	default_color = '8B8673',
+	double_buffer = true,
+	font = 'DejaVu Sans Mono Boot:size=10',
+	draw_shades = false,
+	gap_x = 25,
+	gap_y = 45,
+	minimum_width = 330,
+	no_buffers = true,
+	own_window = true,
+	own_window_class = "Conky",
+	own_window_type = 'desktop',
+	own_window_transparent = true,
+	update_interval = 2.0,
+	use_xft = true,
+}
+conky.text = [[
+${alignc}S Y S T E M    I N F O
+${hr}
+Host: ${nodename}${alignr}Uptime: ${uptime}
+Local: ${time %H:%M}${alignr}UTC: ${utime %H:%M}
+
+${goto 60}Used${alignr}Size
+Root${goto 60}${fs_used /}${alignr}${fs_size /}
+Home${goto 60}${fs_used /home}${alignr}${fs_size /home}
+
+${goto 60}MEM${alignr}MAX
+RAM${goto 60}${mem}${alignr}${memmax}
+Swap${goto 60}${swap}${alignr}${swapmax}
+
+${color}CPU1 ${color1}${cpu cpu1}% ${goto 80}${cpubar cpu1 12,50}  	${goto 200}${color}CPU5 ${color1}${cpu cpu5}% ${goto 280}${cpubar cpu5 12,50}
+${color}CPU2 ${color1}${cpu cpu2}% ${goto 80}${cpubar cpu2 12,50}  	${goto 200}${color}CPU6 ${color1}${cpu cpu6}% ${goto 280}${cpubar cpu6 12,50}
+${color}CPU3 ${color1}${cpu cpu3}% ${goto 80}${cpubar cpu3 12,50}  	${goto 200}${color}CPU7 ${color1}${cpu cpu7}% ${goto 280}${cpubar cpu7 12,50}
+${color}CPU4 ${color1}${cpu cpu4}% ${goto 80}${cpubar cpu4 12,50}  	${goto 200}${color}CPU8 ${color1}${cpu cpu8}% ${goto 280}${cpubar cpu8 12,50}
+
+${color}Net Down: ${downspeed enp0s31f6} ${alignr}Net Up: ${upspeed enp0s31f6}
+
+${color1}Port(s)${alignr}#Connections
+${color}Inbound: ${tcp_portmon 1 32767 count}  Outbound: ${tcp_portmon 32768 61000 count}${alignr}ALL: ${tcp_portmon 1 65535 count}
+${color1}Inbound Connection ${alignr} Local Service/Port${color}
+${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+${color1}Outbound Connection ${alignr} Remote Service/Port${color}
+${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
+]];
