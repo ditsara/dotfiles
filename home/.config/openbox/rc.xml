@@ -368,6 +368,15 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
+    <keybind key="W-w">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>nano</name>
+        </startupnotify>
+        <command>xterm -e nano</command>
+      </action>
+    </keybind>
     <keybind key="W-r">
       <action name="Execute">
         <startupnotify>
@@ -395,13 +404,36 @@
         <command>sh -c "if ! terminator; then exo-open --launch TerminalEmulator; fi"</command>
       </action>
     </keybind>
+    <keybind key="S-W-t">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Fast Xterm</name>
+        </startupnotify>
+        <command>sh -c "export SKIP_BASH_IT=y; st"</command>
+      </action>
+    </keybind>
     <keybind key="W-g">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Chrome</name>
+          <name>Chrome Work</name>
         </startupnotify>
-        <command>chromium</command>
+        <command>chromium --profile-directory=Default</command>
+      </action>
+    </keybind>
+    <keybind key="S-W-g">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Chrome Personal</name>
+        </startupnotify>
+        <command>chromium --profile-directory="Profile 1"</command>
+      </action>
+    </keybind>
+    <keybind key="W-q">
+      <action name="ShowMenu">
+        <menu>client-list-combined-menu</menu>
       </action>
     </keybind>
     <keybind key="W-Pause">

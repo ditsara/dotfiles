@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo apt-get install -y \
+pacman -S \
   bash-completion \
   git \
   autossh \

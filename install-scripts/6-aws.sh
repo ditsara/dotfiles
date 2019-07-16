@@ -1,6 +1,3 @@
 #!/bin/sh
 
-sudo apt-get install -y \
-  python \
-  python-pip \
-pip install awscli --upgrade --user
+pacman -S aws-cli
