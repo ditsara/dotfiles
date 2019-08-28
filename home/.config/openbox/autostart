@@ -15,7 +15,7 @@ sleep 1; manjaro-tint2-session &
 sleep 1; ob-autostart -d &
 
 ### launch conky
-manjaro-conky-session &
+# manjaro-conky-session &
 
 ### volumeicon
 sleep 1; volumeicon &
@@ -35,6 +35,12 @@ sleep 1; thunar --daemon &
 
 ### Required for xfce settings to work
 xfsettingsd &
+
+### Automatically lock the screen
+xautolock -time 10 -locker 'lockscreen -- scrot' &
+
+### Drop-down terminal
+tilda &
 
 ### Swap Control and Caps
 setxkbmap -option ctrl:swapcaps

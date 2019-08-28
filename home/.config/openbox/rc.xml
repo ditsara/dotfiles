@@ -442,7 +442,16 @@
           <enabled>true</enabled>
           <name>Lock Screen</name>
         </startupnotify>
-        <command>lockscreen -- scrot</command>
+        <command>i3lock -c 333333</command>
+      </action>
+    </keybind>
+    <keybind key="XF86Favorites">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Lock Screen</name>
+        </startupnotify>
+        <command>i3lock -c 333333</command>
       </action>
     </keybind>
   </keyboard>
