@@ -9,4 +9,5 @@ pacman -Syu && \
     npm \
     yarn \
     docker \
-    docker-compose
+    docker-compose \
+    neovim

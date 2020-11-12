@@ -13,4 +13,5 @@ apt update && \
     openvpn \
     ruby \
     nodejs \
-    yarn
+    yarn \
+    neovim
