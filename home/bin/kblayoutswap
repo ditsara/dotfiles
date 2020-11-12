@@ -1,0 +1,11 @@
+#!/bin/sh
+
+setxkbmap -query | grep us > /dev/null
+
+if [ $? -eq 0 ]; then
+  echo "layout: TH"
+  setxkbmap -layout th
+else
+  echo "layout: US"
+  setxkbmap -layout us
+fi
