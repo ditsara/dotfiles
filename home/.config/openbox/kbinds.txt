@@ -1,44 +1,63 @@
-o C-A-Left        	GoToDesktop
-o C-A-Right       	GoToDesktop
-o C-A-Up          	GoToDesktop
-o C-A-Down        	GoToDesktop
-o S-F9            	SendToDesktop
-o S-F10           	SendToDesktop
-o S-F11           	SendToDesktop
-o S-F12           	SendToDesktop
-o F9              	GoToDesktop
-o F10             	GoToDesktop
-o F11             	GoToDesktop
-o F12             	GoToDesktop
-o W-d             	ToggleShowDesktop
-o W-Escape        	Reconfigure
-o A-F4            	Close
-o A-Escape        	Lower
-o W-space         	client-menu
-x Print           	scrot 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
-x A-Print         	scrot -d 5 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
-x W-Print         	deepin-screenshot
-o A-Tab           	NextWindow
-o A-S-Tab         	PreviousWindow
-o W-Tab           	NextWindow
-o W-f             	ToggleFullScreen
-o W-v             	ToggleMaximize
-o W-c             	MoveResizeTo
-o W-b             	MoveResizeTo
-o W-bracketright  	MoveResizeTo
-o W-bracketleft   	MoveResizeTo
-o W-S-bracketright	MoveResizeTo
-o W-S-bracketleft 	MoveResizeTo
-o W-C-bracketright	MoveResizeTo
-o W-C-bracketleft 	MoveResizeTo
-o W-equal         	ToggleMaximize
-o W-minus         	Iconify
-o W-l             	DirectionalCycleWindows
-o W-h             	DirectionalCycleWindows
-o W-k             	DirectionalCycleWindows
-o W-j             	DirectionalCycleWindows
-x W-r             	thunar ~/Downloads
-x W-e             	rofi -show run
-x W-t             	sh -c "if ! terminator; then exo-open --launch TerminalEmulator; fi"
-x W-g             	chromium
-x W-Pause         	lockscreen -- scrot
+2022-01-24	rc.xml KEYBINDS
+-------------------------------
+
+ 0	C-A-Left        	GoToDesktop
+ 1	C-A-Right       	GoToDesktop
+ 2	C-A-Up          	GoToDesktop
+ 3	C-A-Down        	GoToDesktop
+ 4	W-S-F9          	SendToDesktop
+ 5	W-S-F10         	SendToDesktop
+ 6	W-S-F11         	SendToDesktop
+ 7	W-S-F12         	SendToDesktop
+ 8	W-F9            	GoToDesktop
+ 9	W-F10           	GoToDesktop
+10	W-F11           	GoToDesktop
+11	W-F12           	GoToDesktop
+12	W-d             	ToggleShowDesktop
+13	W-Escape        	Reconfigure
+14	W-S-Escape      	~/bin/kblayoutswap
+15	A-F4            	Close
+16	A-Escape        	Lower
+17	W-space         	client-menu
+18	Print           	scrot 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir P...
+19	A-Print         	scrot -d 5 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-...
+20	W-Print         	scrot --select 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-u...
+21	A-Tab           	NextWindow
+22	A-S-Tab         	PreviousWindow
+23	W-Tab           	NextWindow
+24	W-f             	ToggleFullScreen
+25	W-v             	ToggleMaximize
+26	W-m             	ToggleMaximize
+27	W-n             	Lower
+28	W-c             	MoveResizeTo
+29	W-b             	MoveResizeTo
+30	W-bracketright  	Unmaximize
+31	W-bracketleft   	Unmaximize
+32	W-backslash     	Unmaximize
+33	W-A-backslash   	Unmaximize
+34	W-BackSpace     	skippy-xd
+35	W-S-bracketright	MoveResizeTo
+36	W-S-bracketleft 	MoveResizeTo
+37	W-A-bracketright	MoveResizeTo
+38	W-A-bracketleft 	MoveResizeTo
+39	W-C-bracketright	MoveResizeTo
+40	W-C-bracketleft 	MoveResizeTo
+41	W-equal         	ToggleMaximize
+42	W-minus         	Iconify
+43	W-S-minus       	ToggleDecorations
+44	W-l             	DirectionalCycleWindows
+45	W-h             	DirectionalCycleWindows
+46	W-k             	DirectionalCycleWindows
+47	W-j             	DirectionalCycleWindows
+48	W-w             	root-menu
+49	W-r             	thunar ~/Downloads
+50	W-e             	rofi -show run
+51	W-t             	alacritty
+52	W-S-t           	alacritty -e irb
+53	W-C-t           	terminator
+54	W-g             	chromium --profile-directory="Default"
+55	W-S-g           	chromium --profile-directory="Profile 1"
+56	W-C-g           	firefox-developer-edition -P "anon"
+57	W-Pause         	lockscreen -- scrot
+58	W-grave         	mic-toggle-mute
+59	W-period        	splatmoji type

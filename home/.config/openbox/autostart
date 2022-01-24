@@ -7,22 +7,17 @@
 ### compositor
 sleep 1; picom &
 
-### restore wallpaper
-sleep 1; nitrogen --restore &
-sleep 1; manjaro-tint2-session &
-# sleep 1; manjaro-polybar-session &
-
 ### Openbox autostart
 sleep 1; ob-autostart -d &
 
 ### launch conky
-manjaro-conky-session &
+# manjaro-conky-session &
 
 ### volumeicon
 sleep 1; volumeicon &
 
 ### PolicyKit authentication
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 ### Side shortcuts for file managers
 xdg-user-dirs-gtk-update &
@@ -43,4 +38,8 @@ tilda &
 ### Swap Control and Caps
 setxkbmap -option ctrl:swapcaps
 
+### restore wallpaper
+sleep 1; nitrogen --restore &
+sleep 1; manjaro-tint2-session &
+# sleep 1; manjaro-polybar-session &
 
