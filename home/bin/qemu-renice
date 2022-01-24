@@ -1,0 +1,10 @@
+#!/usr/bin/ruby
+
+def run!
+  ps_output = `ps -e | grep qemu-system-x86`
+  ps_num = ps_output.match(/^\s*\d+/)[0]&.tr(" ", "")
+  return if ps_num.empty?
+  system("renice -n 19 #{ps_num}")
+end
+
+run!
