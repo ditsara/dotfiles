@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <sim>
+    <rendering>
+      <camera>
+        <host-name type="string"></host-name>
+        <display>0</display>
+        <screen>0</screen>
+        <shear-x>-1</shear-x>
+        <shear-y>0</shear-y>
+        <width>1024</width>
+        <height>768</height>
+        <fullscreen type="bool">false</fullscreen>
+
+        <view>
+          <heading-deg type="double">45</heading-deg>
+        </view>
+      </camera>
+    </rendering>
+  </sim>
+
+  <input n="0">
+    <keyboard n="0">
+      <key n="119">
+        <desc>RESET PILOT VIEW</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            setprop("/sim/current-view/goal-pitch-offset-deg", getprop("/sim/view/config/default-pitch-deg"));
+            setprop("/sim/current-view/goal-heading-offset-deg", getprop("/sim/view/config/default-heading-deg"));
+            setprop("/sim/current-view/field-of-view", getprop("/sim/view/config/default-field-of-view-deg"));
+            setprop("/sim/current-view/x-offset-m", getprop("/sim/view/config/x-offset-m"));
+            setprop("/sim/current-view/y-offset-m", getprop("/sim/view/config/y-offset-m"));
+            setprop("/sim/current-view/z-offset-m", getprop("/sim/view/config/z-offset-m"));
+            setprop("/sim/current-view/view-number","0");
+          </script>
+        </binding>
+        <binding>
+          <command>property-assign</command>
+          <property>/sim/current-view/field-of-view</property>
+          <property>/sim/current-view/config/default-field-of-view-deg</property>
+        </binding>
+      </key>
+    </keyboard>
+  </input>
+</PropertyList>
