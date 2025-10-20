@@ -49,6 +49,9 @@ Plug("folke/tokyonight.nvim")
 -- need v1.8 for compatibility with (Ubuntu) Neovim 0.9
 Plug("neovim/nvim-lspconfig", { ["tag"] = "v1.8.0" })
 
+-- Auto-save files
+Plug("pocco81/auto-save.nvim")
+
 vim.call("plug#end")
 -- end load plugins
 
@@ -118,6 +121,9 @@ vim.keymap.set("n", "<leader>lR", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, { desc = "Go to References" })
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format Buffer" })
+
+-- Auto-save
+vim.api.nvim_set_keymap("n", "<leader>ra", ":ASToggle<CR>", { desc = "Auto-save toggle" })
 
 -- ### colorscheme
 vim.cmd("silent! colorscheme tokyonight")
