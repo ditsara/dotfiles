@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apt install -y \
+sudo apt install -y \
 	git \
 	bind9-dnsutils \
 	unzip \
