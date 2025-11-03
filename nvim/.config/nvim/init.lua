@@ -26,6 +26,9 @@ Plug("preservim/nerdtree", { ["on"] = "NERDTreeToggle" })
 -- Surround helpers
 Plug("tpope/vim-surround")
 
+-- Comment helpers
+Plug("tpope/vim-commentary")
+
 -- Git helpers
 Plug("tpope/vim-fugitive")
 Plug("lewis6991/gitsigns.nvim")
@@ -75,12 +78,25 @@ require("formatter").setup({
 		typescript = {
 			require("formatter.filetypes.typescript").prettier,
 		},
+		python = {
+			require("formatter.filetypes.python").autopep8,
+		},
+		toml = {
+			require("formatter.filetypes.toml").taplo,
+		},
 	},
 })
 
 -- LSP
 -- https://github.com/neovim/nvim-lspconfig/blob/v1.8.0/doc/configs.md
-require("lspconfig").ts_ls.setup({})
+local lspconfig = require("lspconfig")
+lspconfig.ts_ls.setup({})
+lspconfig.html.setup({ filetypes = { "html", "hbs" } })
+
+-- Syntax highlighting
+vim.filetype.add({
+	extension = { hbs = "html" },
+})
 
 -- ### Keymaps
 -- File Tree
@@ -109,6 +125,8 @@ vim.keymap.set("n", ";", ":", { noremap = true, silent = true, desc = "Enter com
 vim.keymap.set("v", ";", ":", { noremap = true, silent = true, desc = "Enter command-line mode" })
 -- exit terminal with Esc
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+-- quickfix shortcut
+vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>", { desc = "Quickfix" })
 
 -- LSP
 require("which-key").add({ { "<leader>l", group = "LSP" } })
@@ -121,6 +139,8 @@ vim.keymap.set("n", "<leader>lR", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, { desc = "Go to References" })
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format Buffer" })
+-- trigger completion with Ctrl+Space
+vim.keymap.set("i", "<C-Space>", vim.lsp.omnifunc, { noremap = true, silent = true })
 
 -- Auto-save
 vim.api.nvim_set_keymap("n", "<leader>ra", ":ASToggle<CR>", { desc = "Auto-save toggle" })
