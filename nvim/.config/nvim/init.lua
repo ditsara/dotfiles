@@ -41,16 +41,24 @@ Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.8" })
 -- https://github.com/folke/which-key.nvim
 Plug("folke/which-key.nvim")
 
--- Formatter and Mason (manages formatters)
-Plug("mhartington/formatter.nvim")
-Plug("mason-org/mason.nvim")
-
 -- Tokyo Night: colorscheme
 Plug("folke/tokyonight.nvim")
 
 -- LSP configuration
 -- need v1.8 for compatibility with (Ubuntu) Neovim 0.9
 Plug("neovim/nvim-lspconfig", { ["tag"] = "v1.8.0" })
+
+-- Formatter
+Plug("mhartington/formatter.nvim")
+
+-- Mason (manages LSP, linters, formatters)
+-- need v1.11.0 for compatibility with (Ubuntu) Neovim 0.9
+Plug("mason-org/mason.nvim", { ["tag"] = "v1.11.0" })
+-- need v1.32.0 for compatibility with (Ubuntu) Neovim 0.9
+Plug("mason-org/mason-lspconfig.nvim", { ["tag"] = "v1.32.0" })
+
+-- Completion
+Plug("echasnovski/mini.nvim")
 
 -- Auto-save files
 Plug("pocco81/auto-save.nvim")
@@ -59,8 +67,35 @@ vim.call("plug#end")
 -- end load plugins
 
 -- ### Setup
--- Formatter
+
+-- LSP manual config; disable this if using Mason-LSPConfig
+-- https://github.com/neovim/nvim-lspconfig/blob/v1.8.0/doc/configs.md
+-- local lspconfig = require("lspconfig")
+-- lspconfig.ts_ls.setup({})
+-- lspconfig.html.setup({ filetypes = { "html", "hbs" } })
+
+-- Mason and automatic LSP setup
 require("mason").setup()
+require("mason-lspconfig").setup()
+
+require("mason-lspconfig").setup_handlers({
+	-- The first entry (without a key) will be the default handler
+	-- and will be called for each installed server that doesn't have
+	-- a dedicated handler.
+	function(server_name) -- default handler (optional)
+		require("lspconfig")[server_name].setup({})
+	end,
+	-- Next, you can provide a dedicated handler for specific servers.
+	-- For example, a handler override for the `rust_analyzer`:
+	-- ["rust_analyzer"] = function ()
+	--     require("rust-tools").setup {}
+	-- end
+})
+
+-- Completion
+require("mini.completion").setup()
+
+-- Formatter
 require("formatter").setup({
 	-- Enable or disable logging
 	logging = true,
@@ -86,12 +121,6 @@ require("formatter").setup({
 		},
 	},
 })
-
--- LSP
--- https://github.com/neovim/nvim-lspconfig/blob/v1.8.0/doc/configs.md
-local lspconfig = require("lspconfig")
-lspconfig.ts_ls.setup({})
-lspconfig.html.setup({ filetypes = { "html", "hbs" } })
 
 -- Syntax highlighting
 vim.filetype.add({
