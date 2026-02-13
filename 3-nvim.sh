@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
 
-sudo apt install -y neovim
+sudo apt install -y neovim ripgrep
 
 rsync -avI $SCRIPT_DIR/nvim/ ~
 

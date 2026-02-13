@@ -74,6 +74,15 @@ vim.call("plug#end")
 -- lspconfig.ts_ls.setup({})
 -- lspconfig.html.setup({ filetypes = { "html", "hbs" } })
 
+-- Telescope
+require("telescope").setup({
+	pickers = {
+		find_files = {
+			hidden = true,
+		},
+	},
+})
+
 -- Mason and automatic LSP setup
 require("mason").setup()
 require("mason-lspconfig").setup()
