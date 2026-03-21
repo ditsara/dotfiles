@@ -10,6 +10,7 @@ vim.o.ignorecase = true
 vim.o.wrap = false
 vim.o.hlsearch = false
 vim.o.signcolumn = "yes"
+vim.o.clipboard = "unnamedplus"
 
 -- Space as the leader key
 vim.g.mapleader = " "
@@ -36,6 +37,9 @@ Plug("lewis6991/gitsigns.nvim")
 -- Telescope: file search
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.8" })
+
+-- Toggleterm
+Plug("akinsho/toggleterm.nvim", { ["tag"] = "v2.*" })
 
 -- WhichKey: help with leader keys
 -- https://github.com/folke/which-key.nvim
@@ -81,6 +85,12 @@ require("telescope").setup({
 			hidden = true,
 		},
 	},
+})
+
+-- Toggleterm
+require("toggleterm").setup({
+	open_mapping = [[<C-g>]],
+	size = 20,
 })
 
 -- Mason and automatic LSP setup
@@ -138,7 +148,13 @@ vim.filetype.add({
 
 -- ### Keymaps
 -- File Tree
-vim.keymap.set("n", "<leader>e", "<cmd>NERDTreeToggle<cr>", { desc = "File tree" })
+require("which-key").add({ { "<leader>e", group = "File Tree" } })
+
+vim.keymap.set("n", "<leader>ee", "<cmd>NERDTreeToggle<cr>", { desc = "Toggle file explorer" })
+vim.keymap.set("n", "<leader>ef", "<cmd>NERDTreeFind<cr>", { desc = "Find current file in tree" })
+vim.keymap.set("n", "<leader>er", "<cmd>NERDTreeRefreshRoot<cr>", { desc = "Refresh file explorer" })
+vim.keymap.set("n", "<leader>ec", "<cmd>NERDTreeClose<cr>", { desc = "Collapse file explorer" })
+
 
 -- Telescope
 require("which-key").add({ { "<leader>f", group = "Find" } })
@@ -147,6 +163,9 @@ vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Telescope find
 vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
+
+-- Toggleterm
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Terminal (Ctrl-g)" })
 
 -- Formatter
 require("which-key").add({ { "<leader>r", group = "Format" } })
