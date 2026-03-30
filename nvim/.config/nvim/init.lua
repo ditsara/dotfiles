@@ -90,7 +90,14 @@ require("telescope").setup({
 -- Toggleterm
 require("toggleterm").setup({
 	open_mapping = [[<C-g>]],
+
+	-- Recommended settings
+	-- direction = "float", -- or "horizontal", "vertical"
 	size = 20,
+	insert_mappings = true, -- map <c-g> in insert mode
+	terminal_mappings = true, -- map <c-g> in terminal mode
+	start_in_insert = true,
+	close_on_exit = true,
 })
 
 -- Mason and automatic LSP setup
